@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz Sonuçları</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Analiz Sonuçları</h1>
+
+        <!-- Korelasyon ısı haritası -->
+        <h2>Korelasyon Isı Haritası</h2>
+        <img src="{{ heatmap_image }}" alt="Korelasyon Isı Haritası" class="img-fluid mb-5">
+
+        <!-- Lineer Regresyon Sonuçları -->
+        <h2>Lineer Regresyon Sonuçları</h2>
+        <p><strong>Mean Squared Error:</strong> {{ mse }}</p>
+
+        <!-- Tahmin Sonuçları Tablosu -->
+        <h3>Tahmin Sonuçları</h3>
+        {% for table in tables %}
+            <div class="table-responsive">
+                {{ table | safe }}
+            </div>
+        {% endfor %}
+
+        <a href="/" class="btn btn-primary mt-3">Yeni Bir Dosya Yükle</a>
+    </div>
+</body>
+</html>
